@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="activity"
+            type="com.example.winebarcodereader.view.scan.ZxingScanningActivity" />
+
+        <variable
+            name="viewModel"
+            type="com.example.winebarcodereader.viewmodel.scan.ScanningViewModel" />
+
+        <import type="android.view.View" />
+
+    </data>
+    <RelativeLayout
+        android:id="@+id/view_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.scan.ZxingScanningActivity"
+        android:orientation="vertical">
+
+        <com.journeyapps.barcodescanner.DecoratedBarcodeView
+            android:id="@+id/zxing_barcode_scanner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            app:zxing_preview_scaling_strategy="centerCrop"
+            app:zxing_use_texture_view="false"
+            app:zxing_scanner_layout="@layout/custom_barcode_scanner"/>
+
+
+        <ImageView
+            android:layout_width="600dp"
+            android:layout_height="450dp"
+            android:background="#00000000"
+            android:scaleType="centerCrop"
+            android:src="@drawable/area_focus"
+            android:layout_centerInParent="true" />
+
+        <ImageView
+            android:layout_width="400dp"
+            android:layout_height="45dp"
+            android:src="@drawable/wine_above_string"
+            android:scaleType="centerCrop"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="24dp"/>
+
+    </RelativeLayout>
+</layout>

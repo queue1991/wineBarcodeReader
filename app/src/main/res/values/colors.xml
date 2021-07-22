@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+
+    <!-- CU 기본 색상-->
+    <color name="cu_purple">#652C8D</color>
+    <color name="cu_green">#AACE36</color>
+    <color name="cu_white">#ffffff</color>
+
+    <!-- 와인 이벤트 정보 색상 -->
+    <color name="cu_wine_event_msg_color">#693B97</color>
+
+    <!-- 와인 가격 정보 색상 -->
+    <color name="cu_wine_price_color">#693B97</color>
+
+
+
+</resources>

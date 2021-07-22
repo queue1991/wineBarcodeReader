@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="activity"
+            type="com.example.winebarcodereader.view.wineinfo.WineInfoResultActivity" />
+
+        <variable
+            name="viewModel"
+            type="com.example.winebarcodereader.viewmodel.wineinfo.WineInfoResultViewModel" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+<RelativeLayout
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.wineinfo.WineInfoResultActivity">
+
+    <RelativeLayout
+        android:id="@+id/rv_title"
+        android:layout_width="match_parent"
+        android:layout_height="123dp"
+        android:background="@color/cu_purple">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/cu_bar_title"
+            android:layout_marginLeft="42dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"/>
+
+        <ImageView
+            android:layout_width="500dp"
+            android:layout_height="72dp"
+            android:src="@drawable/app_down_qr"
+            android:layout_marginRight="24dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"/>
+
+        <ImageView
+            android:layout_width="500dp"
+            android:layout_height="72dp"
+            android:layout_marginRight="24dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            app:bind_barcode_image="@{viewModel.poketCUBarcodeString}"/>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rv_title"
+        android:backgroundTint="@color/cu_purple">
+
+        <ScrollView
+            android:id="@+id/view_scroll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            android:layout_centerInParent="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/anim_loading"
+                    app:bind_image="@{viewModel.wineInfoImageUrl}"
+                    app:device_width="@{viewModel.deviceWidth}"
+                    app:wine_price_view="@{winePriceView}"
+                    app:wine_event_msg="@{wineEventMsgView}"/>
+
+                <TextView
+                    android:id="@+id/winePriceView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:text="@{viewModel.winePrice}"
+                    android:textSize="38dp"
+                    android:visibility="invisible"
+                    android:fontFamily="@font/hyheadlinem"
+                    android:textColor="@color/cu_wine_price_color"
+                    android:layout_marginTop="42dp"
+                    android:paddingRight="100dp"/>
+
+                <TextView
+                    android:id="@+id/wineEventMsgView"
+                    android:layout_width="380dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.wineEventMsg}"
+                    android:layout_below="@+id/winePriceView"
+                    android:textSize="20dp"
+                    android:visibility="invisible"
+                    android:maxLines="3"
+                    android:gravity="right"
+                    android:lineSpacingExtra="4dp"
+                    android:fontFamily="@font/hyheadlinem"
+                    android:textStyle="bold"
+                    android:textColor="@color/cu_wine_event_msg_color"
+                    android:layout_marginTop="15dp"
+                    android:layout_alignParentRight="true"
+                    android:paddingRight="100dp"/>
+
+
+
+            </RelativeLayout>
+
+        </ScrollView>
+    </RelativeLayout>
+
+
+    <ImageButton
+        android:id="@+id/btn_go_barcode"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="Go Barcoding"
+        android:onClick="goScan"
+        android:background="#00000000"
+        android:scaleType="centerCrop"
+        android:src="@drawable/btn_close"
+        android:layout_marginBottom="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>
+
+</layout>

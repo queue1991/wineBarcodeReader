@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">wineBarcodeReader</string>
+
+    <!-- 앱 종료 다이얼로그 관련 문자열 -->
+    <string name="quit_app_dialog_title">Wine Curation</string>
+    <string name="quit_app_dialog_message">Wine Curation APP을\n종료하시겠습니까?</string>
+
+    <!-- 네트워크 관련 문자열 -->
+    <string name="network_disconnected">Network Disconnected</string>
+    <string name="network_connected">Network Connected</string>
+
+</resources>
